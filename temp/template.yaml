@@ -1,3 +1,22 @@
+# apiVersion: backstage.io/v1alpha1
+# kind: Template
+# metadata:
+#   name: your-template
+#   namespace: argocd
+# spec:
+#   owner: team-name
+#   type: service
+#   template:
+#     spec:
+#       parameters:
+#         - title: Repository URL
+#           required: true
+#           type: string
+#           default: "https://cnoe.localtest.me:8443/gitea/giteaAdmin"
+#       output: 
+#         repository:
+#           url: "https://github.com/bitthalpatidar/backstage-task"
+#           provider: github
 apiVersion: backstage.io/v1alpha1
 kind: Template
 metadata:
@@ -12,8 +31,8 @@ spec:
         - title: Repository URL
           required: true
           type: string
-          default: "https://cnoe.localtest.me:8443/gitea/giteaAdmin"
-      output: 
+          default: "https://github.com/bitthalpatidar/backstage-task"
+      output:
         repository:
-          url: "https://github.com/bitthalpatidar/backstage-task"
+          url: "${parameters.repositoryUrl}"
           provider: github
